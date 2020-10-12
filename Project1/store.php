@@ -11,6 +11,10 @@
 <?php
 
     function GoToCheckout() {
+        $incomingData = urldecode($_REQUEST['data']);
+        $cookie_name = "Book";
+        $cookie_value = $incomingData;
+        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
         header("Location: /project1/checkout.php");
     }
 

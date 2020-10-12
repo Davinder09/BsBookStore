@@ -22,7 +22,14 @@
   </style>
 </head>
 <body>
-
+<?php
+  if(!isset($_COOKIE['Book'])) {
+      echo "Cookie named Book is not set!";
+  } else {
+      echo "Cookie is set!<br>";
+      echo "Value is: " . $_COOKIE['Book'];
+  }
+?>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
