@@ -71,13 +71,23 @@
 
     $conn = OpenCon();
 
-    $sql = "INSERT INTO bookinventoryorder (FirstName, LastName, PaymentMethod, BookId)
+    $newOrderSql = "INSERT INTO bookinventoryorder (FirstName, LastName, PaymentMethod, BookId)
     VALUES ('$firstName', '$lastName', '$paymentMethod', $bookId)";
 
-    if ($conn->query($sql) === TRUE) {
+    if ($conn->query($newOrderSql) === TRUE) {
       echo "New record created successfully";
     } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
+      echo "Error: " . $newOrderSql . "<br>" . $conn->error;
+    }
+
+    //update quantity
+    $updateInventorySql = "UPDATE bookinventory SET Quantity = Quantity - 1
+              WHERE Id = $bookId";
+
+    if ($conn->query($updateInventorySql) === TRUE) {
+      echo "New record created successfully";
+    } else {
+      echo "Error: " . $updateInventorySql . "<br>" . $conn->error;
     }
 
     CloseCon($conn);    
@@ -111,14 +121,13 @@
         <input type="text" id="firstname" name="firstname" placeholder="Your first name">
 
         <?php
-        // Validate the first name:
-        // if (!empty($_REQUEST['firstname'])) {
-        //   $name = $_REQUEST['firstname'];
+        // if (!empty($_POST['firstname'])) {
+        //   $name = $_POST['firstname'];
         // } else {
         //   $name = NULL;
-        //   echo '<p class="error">Please enter your first name</p>';
+        //   echo '<sapn class="error">Please enter your first name</span> <br/>';
         // }
-        // ?>
+        ?>
 
         <label for="lastname">Last Name</label>
         <input type="text" id="lastname" name="lastname" placeholder="Your last name">

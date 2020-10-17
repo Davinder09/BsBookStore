@@ -1,5 +1,6 @@
 --
 -- Database: 'bookstoredb'
+--
 
 DROP DATABASE IF EXISTS BookStoreDb;
 
@@ -30,15 +31,5 @@ CREATE TABLE BookInventoryOrder (
 );
 
 --
--- Trigger created for table 'bookInventoryOrder'
+-- Database created successfully
 --
-
-delimiter //
-CREATE TRIGGER manageInventory AFTER INSERT ON bookstoredb.BookInventoryOrder
-BEGIN
-  UPDATE BookInventory 
-  SET BookInventory.Quantity = BookInventory.Quantity - 1
-  WHERE bookId = (SELECT BookId
-                 FROM inserted;);
-END;
-delimiter ;
