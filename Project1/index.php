@@ -31,11 +31,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">BS Book Store</a>
+      <a class="navbar-brand" href="index.php">BS Book Store</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li class="active"><a href="index.php">Home</a></li>
         <li><a href="store.php">Book Store</a></li>
       </ul>
     </div>
@@ -44,56 +44,39 @@
 
 <div class="jumbotron">
   <div class="container text-center">
-    <h1>My Portfolio</h1>      
-    <p>Some text that represents "Me"...</p>
+    <h1>BS Book Store</h1>      
+    <p>BS Book Store is more than just a great bookstore. It is a vital part of the 
+    region’s cultural, social, and political community. Multiple generations of book lovers have visited 
+    our website, and we look forward to meeting many more generations to come. We’re deeply thankful 
+    to our loyal customers for recognizing the value of a place like BS Book Store, 
+    and for making it possible for us to continue doing what we love.</p>
   </div>
 </div>
   
 <div class="container-fluid bg-3 text-center">    
-  <h3>Some of my Work</h3><br>
+  <h3>Book Genres</h3><br>
   <div class="row">
     <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <p>Comics</p>
+      <img src="./images/comics.jpg" class="img-responsive" style="width:100%" alt="Image">
     </div>
     <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <p>Poetry</p>
+      <img src="./images/poetry.jpg" class="img-responsive" style="width:100%" alt="Image">
     </div>
     <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <p>Science Fiction</p>
+      <img src="./images/science.jpg" class="img-responsive" style="width:100%" alt="Image">
     </div>
     <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-  </div>
-</div><br>
-
-<div class="container-fluid bg-3 text-center">    
-  <div class="row">
-    <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <p>Internat Technology</p>
+      <img src="./images/coding.jpg" class="img-responsive" style="width:100%" alt="Image">
     </div>
   </div>
 </div><br><br>
 
 <footer class="container-fluid text-center">
-  <p>Footer Text</p>
+  <p>Davinder Singh</p>
 </footer>
 
 </body>

@@ -22,12 +22,16 @@ CREATE TABLE BookInventory (
 
 CREATE TABLE BookInventoryOrder (
 	Id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	FisrtName varchar (75) NOT NULL,
+	FirstName varchar (75) NOT NULL,
     LastName varchar (75) NOT NULL,
     PaymentMethod varchar (75) NOT NULL,
     BookId int NOT NULL,
     FOREIGN KEY (BookId) REFERENCES BookInventory(Id)
 );
+
+--
+-- Trigger created for table 'bookInventoryOrder'
+--
 
 delimiter //
 CREATE TRIGGER manageInventory AFTER INSERT ON bookstoredb.BookInventoryOrder

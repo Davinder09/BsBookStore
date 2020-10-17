@@ -8,6 +8,32 @@
 </head>
 <body>
 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="index.php">BS Book Store</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.php">Home</a></li>
+        <li><a href="store.php">Book Store</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <p>BS Book Store have various book genres bookstore. Following the books for 
+    Software developement field.</p>
+  </div>
+</div>
+
 <?php
 
     function GoToCheckout() {
@@ -30,7 +56,7 @@
     if($result = mysqli_query($conn, $sql)){
         if(mysqli_num_rows($result) > 0){
             echo "<div class='container'>";
-            echo "<h1 class='text-center'>Book Store Inventory ( TO DO show qunatity and price as well)</h1>";
+            echo "<h1 class='text-center'>Book Store Inventory</h1>";
             echo "<div class='table-responsive'>";
                 echo "<table class='table'>";
                     echo "<thead>";
@@ -70,6 +96,10 @@
     CloseCon($conn);
 
 ?>
+
+<footer class="container-fluid text-center">
+  <p>Davinder Singh</p>
+</footer>
 
 </body>
 </html>

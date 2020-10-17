@@ -63,8 +63,24 @@
     if(isset($_COOKIE['Book'])) {
       $decodedCocokie = urldecode($_COOKIE['Book']);
       $bookCookie = json_decode($decodedCocokie, true);
-      echo $bookCookie["Id"];
+      $bookId = $bookCookie["Id"];
     }
+
+    //insert new order
+    include 'mysqli_connect.php';
+
+    $conn = OpenCon();
+
+    $sql = "INSERT INTO bookinventoryorder (FirstName, LastName, PaymentMethod, BookId)
+    VALUES ('$firstName', '$lastName', '$paymentMethod', $bookId)";
+
+    if ($conn->query($sql) === TRUE) {
+      echo "New record created successfully";
+    } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    CloseCon($conn);    
   }
   
 ?>
@@ -77,11 +93,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">BS Book Store</a>
+      <a class="navbar-brand" href="index.php">BS Book Store</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li class="active"><a href="index.php">Home</a></li>
         <li><a href="store.php">Book Store</a></li>
       </ul>
     </div>
@@ -119,7 +135,7 @@
 </div>
 
 <footer class="container-fluid text-center">
-  <p>Footer Text</p>
+  <p>Davinder Singh</p>
 </footer>
 
 </body>
