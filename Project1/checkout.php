@@ -56,7 +56,7 @@
 <body>
 <?php
   
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {    
     $firstName = $_POST['firstname'];
     $lastName = $_POST['lastname'];
     $paymentMethod = $_POST['paymentMethod'];
@@ -75,19 +75,18 @@
     VALUES ('$firstName', '$lastName', '$paymentMethod', $bookId)";
 
     if ($conn->query($newOrderSql) === TRUE) {
-      echo "New record created successfully";
-    } else {
-      echo "Error: " . $newOrderSql . "<br>" . $conn->error;
-    }
+      //update quantity
+      $updateInventorySql = "UPDATE bookinventory SET Quantity = Quantity - 1
+      WHERE Id = $bookId";
 
-    //update quantity
-    $updateInventorySql = "UPDATE bookinventory SET Quantity = Quantity - 1
-              WHERE Id = $bookId";
+      if ($conn->query($updateInventorySql) === TRUE) {
+        echo '<script>alert("Order Placed.")</script>'; 
+      } else {
+        echo "Error: " . $updateInventorySql . "<br>" . $conn->error;
+      }
 
-    if ($conn->query($updateInventorySql) === TRUE) {
-      echo "New record created successfully";
     } else {
-      echo "Error: " . $updateInventorySql . "<br>" . $conn->error;
+      echo '<script>alert("Order failed! Please try again!")</script>';
     }
 
     CloseCon($conn);    
@@ -118,19 +117,23 @@
   <div class="container" id="formDiv">
     <form action="checkout.php" method="POST">
         <label for="firstname">First Name</label>
-        <input type="text" id="firstname" name="firstname" placeholder="Your first name">
-
+        <input type="text" id="firstname" name="firstname" placeholder="Your first name" required>
+        
         <?php
-        // if (!empty($_POST['firstname'])) {
-        //   $name = $_POST['firstname'];
-        // } else {
-        //   $name = NULL;
-        //   echo '<sapn class="error">Please enter your first name</span> <br/>';
-        // }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
+          if (!empty($_POST['firstname'])) {
+            $name = $_POST['firstname'];
+          } else {
+            $name = NULL;
+            echo '<span class="error">Please enter your first name</span> <br/>';
+          }
+        }
+        
         ?>
 
+
         <label for="lastname">Last Name</label>
-        <input type="text" id="lastname" name="lastname" placeholder="Your last name">
+        <input type="text" id="lastname" name="lastname" placeholder="Your last name" required>
 
         <label for="payment">Payment Method</label>
         <select id="payment" name="paymentMethod">
